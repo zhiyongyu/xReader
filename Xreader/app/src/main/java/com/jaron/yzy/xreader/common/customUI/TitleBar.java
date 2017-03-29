@@ -20,7 +20,7 @@ public class TitleBar extends FrameLayout implements TitleBarInterface {
 
     ImageView titlebar_back_img;
     TextView titlebar_back_tv;
-    TextView titlebar_title_tv;
+    public TextView titlebar_title_tv;
     TextView titlebar_right_tv;
     ImageView titlebar_right_img;
 
@@ -105,8 +105,6 @@ public class TitleBar extends FrameLayout implements TitleBarInterface {
         this.titleBarRightClickedListener = titleBarRightClickedListener;
     }
 
-    private TitleBarLeftClickedListener titleBarLeftClickedListener;
-    private TitleBarRightClickedListener titleBarRightClickedListener;
 
     @Override
     public void setTitle(CharSequence title) {
@@ -213,6 +211,15 @@ public class TitleBar extends FrameLayout implements TitleBarInterface {
     public ImageView getLeftImageView() {
         return titlebar_back_img;
     }
+
+    @Override
+    public TextView getLeftTextView() {
+        return titlebar_back_tv;
+    }
+
+
+    private TitleBarLeftClickedListener titleBarLeftClickedListener;
+    private TitleBarRightClickedListener titleBarRightClickedListener;
 
     public interface TitleBarRightClickedListener {
         void onRightClicked(View v);

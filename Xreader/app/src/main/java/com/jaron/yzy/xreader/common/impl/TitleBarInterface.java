@@ -131,4 +131,11 @@ public interface TitleBarInterface {
      * @return
      */
     ImageView getLeftImageView();
+
+    /**
+     * 获取左边的TextView
+     *
+     * @return
+     */
+    TextView getLeftTextView();
 }
