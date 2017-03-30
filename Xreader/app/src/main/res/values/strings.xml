@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Xreader</string>
+    <string name="home_bottom_item1">书架</string>
+    <string name="home_bottom_item2">书城</string>
 </resources>

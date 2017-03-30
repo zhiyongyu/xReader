@@ -1,5 +1,8 @@
 package com.jaron.yzy.xreader.activity;
 
+import android.view.View;
+import android.widget.TextView;
+
 import com.jaron.yzy.xreader.R;
 import com.jaron.yzy.xreader.common.activity.BaseActivity;
 
@@ -17,10 +20,20 @@ import com.jaron.yzy.xreader.common.activity.BaseActivity;
  * 数据将存到数据库中。
  * Created by yzy on 2017/3/28.
  */
-public class HomeActivity extends BaseActivity {
+public class HomeActivity extends BaseActivity implements View.OnClickListener {
+
+    private TextView home_bottom_item1;
+    private TextView home_bottom_item2;
+
+    @Override
+    public String getTitleText() {
+        return "XReader";
+    }
+
     @Override
     public void initView() {
         setContentView(R.layout.home_layout);
+        getTitleBar().setLeftText("菜单");
     }
 
     @Override
@@ -30,6 +43,11 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     public void setView() {
+
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 }
