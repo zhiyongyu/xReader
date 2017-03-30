@@ -39,15 +39,15 @@ public class JsoupTest {
         @Override
         protected String doInBackground(String... params) {
             try {
-                dc = Jsoup.connect("https://www.baidu.com").timeout(500).post();//设置需要解析的网页，设置延时,获取完整html源码
+                dc = Jsoup.connect("http://www.pp122.com/").timeout(1000).post();//设置需要解析的网页，设置延时,获取完整html源码
                 Document document = Jsoup.parse(dc.toString());//通过html源码的字符串
-                Elements elementUL = document.body().getElementsByClass("s-news-rank-content");//通过class获取到需要的内容节点队列。此处开发人员需要注意，一定要取到唯一的class，如果不唯一就取上一级的，直到取到唯一
-                Document documentLi = Jsoup.parse(elementUL.toString());//通过队列拿到内容，此处是指ul标签。
-                Elements elementsLi = documentLi.getElementsByTag("li");//根据li这个标签，取到所有的li节点。
+                Elements elementUL = document.body().getElementsByClass("focus_pictext");//通过class获取到需要的内容节点队列。此处开发人员需要注意，一定要取到唯一的class，如果不唯一就取上一级的，直到取到唯一
+                Document documentLi = Jsoup.parse(elementUL.toString());//通过队列拿到内容
+                Elements elementsLi = documentLi.getElementsByClass("pictext");//根据li这个标签，取到所有的li节点。
 
                 for (Element elementLi : elementsLi) {
-                    String title = elementLi.getElementsByTag("a").text();//通过tag获取a标签，text用来获取a标签的value值
-                    String href = elementLi.getElementsByTag("a").attr("href");//通过attr来获取href的内容。
+                    String title = elementLi.getElementsByClass("pic").get(0).getElementsByTag("a").attr("title");//根据节点来去相应的内容，然后因为这个节点只有一个内容，所有取index为0的，然后获取a标签下的title的内容。
+                    String href = elementLi.getElementsByClass("pic").get(0).getElementsByTag("a").attr("href");//通过attr来获取href的内容。
                     Map<String, String> map = new HashMap<>();
                     map.put("title", title);
                     map.put("href", href);
