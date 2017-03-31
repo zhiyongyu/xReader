@@ -56,9 +56,9 @@ public abstract class BaseActivity extends Activity {
     private void setCustomLayout(View view, ViewGroup.LayoutParams params) {
         mThemeFrameLayout = new LinearLayout(mActivity);
         mThemeFrameLayout.setOrientation(LinearLayout.VERTICAL);
-        titleLayout = new TitleBar(mActivity);
 
         if (setTitleBar()) {
+            titleLayout = new TitleBar(mActivity);
             LinearLayout.LayoutParams titleLlp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                     ViewUtils.dip2px(mActivity, 48));
 

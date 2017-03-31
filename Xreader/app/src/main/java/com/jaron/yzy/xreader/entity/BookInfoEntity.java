@@ -8,7 +8,7 @@ import android.os.Parcelable;
  * 就是列表显示时候的数据。
  * Created by yzy on 2017/3/30.
  */
-public class BookInfoEntity implements Parcelable{
+public class BookInfoEntity implements Parcelable {
 
     private String title;//小说标题
     private String imgUrl;//小说封面图片url
@@ -16,6 +16,8 @@ public class BookInfoEntity implements Parcelable{
     private String bookDescrib;//小说简介
     private String updatePart;//更新到第几章节
     private String watchToPart;//看到的章节。（这个在书架中的书籍才会有）
+    private String isRead;//是否是阅读过了。true：阅读过；false：只是添加到了书架
+    private String timeAgo;//多久之前有操作。
 
     protected BookInfoEntity(Parcel in) {
         title = in.readString();
@@ -24,6 +26,8 @@ public class BookInfoEntity implements Parcelable{
         bookDescrib = in.readString();
         updatePart = in.readString();
         watchToPart = in.readString();
+        isRead = in.readString();
+        timeAgo = in.readString();
     }
 
     public static final Creator<BookInfoEntity> CREATOR = new Creator<BookInfoEntity>() {
@@ -86,6 +90,22 @@ public class BookInfoEntity implements Parcelable{
         this.watchToPart = watchToPart;
     }
 
+    public String getIsRead() {
+        return isRead;
+    }
+
+    public void setIsRead(String isRead) {
+        this.isRead = isRead;
+    }
+
+    public String getTimeAgo() {
+        return timeAgo;
+    }
+
+    public void setTimeAgo(String timeAgo) {
+        this.timeAgo = timeAgo;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -99,5 +119,7 @@ public class BookInfoEntity implements Parcelable{
         dest.writeString(bookDescrib);
         dest.writeString(updatePart);
         dest.writeString(watchToPart);
+        dest.writeString(isRead);
+        dest.writeString(timeAgo);
     }
 }

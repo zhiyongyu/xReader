@@ -2,4 +2,6 @@
     <string name="app_name">Xreader</string>
     <string name="home_bottom_item1">书架</string>
     <string name="home_bottom_item2">书城</string>
+    <string name="shelf_fragment_none_message1">书架上暂时没有书籍</string>
+    <string name="shelf_fragment_none_message2">快去添加吧~</string>
 </resources>

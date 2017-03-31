@@ -34,6 +34,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     public void initView() {
         setContentView(R.layout.home_layout);
         getTitleBar().setLeftText("菜单");
+        getTitleBar().setRightText("搜索");
+        home_bottom_item1 = (TextView) findViewById(R.id.home_bottom_item1);
+        home_bottom_item2 = (TextView) findViewById(R.id.home_bottom_item2);
+        home_bottom_item1.setOnClickListener(this);
+        home_bottom_item2.setOnClickListener(this);
     }
 
     @Override
@@ -48,6 +53,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.home_bottom_item1:
+                // TODO: 2017/3/31 书架相关 
+                break;
+            case R.id.home_bottom_item2:
+                // TODO: 2017/3/31 书城相关
+                break;
+        }
     }
 }
