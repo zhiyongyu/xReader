@@ -1,10 +1,14 @@
 package com.jaron.yzy.xreader.activity;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.view.View;
 import android.widget.TextView;
 
 import com.jaron.yzy.xreader.R;
 import com.jaron.yzy.xreader.common.activity.BaseActivity;
+import com.jaron.yzy.xreader.fragment.BookStoreFragment;
+import com.jaron.yzy.xreader.fragment.ShelfFragment;
 
 /**
  * 主页
@@ -24,6 +28,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     private TextView home_bottom_item1;
     private TextView home_bottom_item2;
+    BookStoreFragment bookStoreFragment;
+    ShelfFragment shelfFragment;
+    FragmentManager fm = getFragmentManager();
 
     @Override
     public String getTitleText() {
@@ -55,10 +62,18 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.home_bottom_item1:
-                // TODO: 2017/3/31 书架相关 
+                // TODO: 2017/3/31 书架相关
+                // 开启Fragment事务
+                FragmentTransaction transaction = fm.beginTransaction();
+                shelfFragment = new ShelfFragment();
+                transaction.replace(R.id.home_content_layout, shelfFragment).commit();
                 break;
             case R.id.home_bottom_item2:
                 // TODO: 2017/3/31 书城相关
+                // 开启Fragment事务
+                FragmentTransaction transaction1 = fm.beginTransaction();
+                bookStoreFragment = new BookStoreFragment();
+                transaction1.replace(R.id.home_content_layout, bookStoreFragment).commit();
                 break;
         }
     }

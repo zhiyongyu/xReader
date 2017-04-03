@@ -37,7 +37,6 @@ public abstract class BaseActivity extends Activity {
     public void setContentView(int layoutResID) {
         View view = LayoutInflater.from(this).inflate(layoutResID, null);
         setCustomLayout(view, null);
-        super.setContentView(layoutResID);
     }
 
     public TitleBar getTitleBar() {

@@ -18,6 +18,11 @@ public class BookInfoEntity implements Parcelable {
     private String watchToPart;//看到的章节。（这个在书架中的书籍才会有）
     private String isRead;//是否是阅读过了。true：阅读过；false：只是添加到了书架
     private String timeAgo;//多久之前有操作。
+    private String author;//作者名字
+
+    public BookInfoEntity() {
+
+    }
 
     protected BookInfoEntity(Parcel in) {
         title = in.readString();
@@ -28,6 +33,7 @@ public class BookInfoEntity implements Parcelable {
         watchToPart = in.readString();
         isRead = in.readString();
         timeAgo = in.readString();
+        author = in.readString();
     }
 
     public static final Creator<BookInfoEntity> CREATOR = new Creator<BookInfoEntity>() {
@@ -106,6 +112,14 @@ public class BookInfoEntity implements Parcelable {
         this.timeAgo = timeAgo;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -121,5 +135,6 @@ public class BookInfoEntity implements Parcelable {
         dest.writeString(watchToPart);
         dest.writeString(isRead);
         dest.writeString(timeAgo);
+        dest.writeString(author);
     }
 }
