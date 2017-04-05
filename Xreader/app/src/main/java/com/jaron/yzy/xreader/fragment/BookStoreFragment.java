@@ -17,6 +17,7 @@ import android.widget.ListView;
 import com.jaron.yzy.xreader.R;
 import com.jaron.yzy.xreader.adapter.BookStoreListAdapter;
 import com.jaron.yzy.xreader.entity.BookInfoEntity;
+import com.jaron.yzy.xreader.utils.FileUtils;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -79,7 +80,14 @@ public class BookStoreFragment extends Fragment implements SwipeRefreshLayout.On
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        FileUtils.createFile(FileUtils.FILE_DIRECTORY, bookInfoEntities.get(position).getTitle() + ".txt");
+        // TODO: 2017/4/5 跳转到小说详情
+        /**
+         * 小说分页思路，
+         * 首先需要根据<br>标签 将段落抽离出来，获取到段落集合，
+         * 再将每个段落通过Paint方法计算出一行可以显示多少个字，以此完成分行，并将分行保存到list集合中。
+         * 数据库中需要保存一篇文章的行的集合，当前页数。起始的字节，结束的字节。
+         */
     }
 
 

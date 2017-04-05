@@ -2,6 +2,7 @@ package com.jaron.yzy.xreader.application;
 
 import android.app.Application;
 
+import com.jaron.yzy.xreader.utils.CommonVariable;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
@@ -17,5 +18,6 @@ public class XreaderApplication extends Application {
                 .createDefault(this);
         //Initialize ImageLoader with configuration.
         ImageLoader.getInstance().init(configuration);
+        CommonVariable.putString(this, CommonVariable.BOOKIMGURL_COMMON, "http://www.biquge.com/files/article/image/");
     }
 }
