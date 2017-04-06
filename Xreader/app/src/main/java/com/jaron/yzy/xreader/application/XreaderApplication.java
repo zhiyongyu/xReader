@@ -6,6 +6,8 @@ import com.jaron.yzy.xreader.utils.CommonVariable;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
+import org.litepal.LitePal;
+
 /**
  * Created by Jaron Yu on 2017/4/2.
  */
@@ -13,6 +15,9 @@ public class XreaderApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //初始化litePal
+        LitePal.initialize(this);
+        LitePal.getDatabase();//创建数据库
         //创建默认的ImageLoader配置参数
         ImageLoaderConfiguration configuration = ImageLoaderConfiguration
                 .createDefault(this);

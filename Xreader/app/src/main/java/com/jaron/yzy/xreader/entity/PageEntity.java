@@ -1,12 +1,14 @@
 package com.jaron.yzy.xreader.entity;
 
+import org.litepal.crud.DataSupport;
+
 import java.util.List;
 
 /**
  * 分页实体类
  * Created by Jaron Yu on 2017/4/5.
  */
-public class PageEntity {
+public class PageEntity extends DataSupport {
     private int firstbyetposition;
     private int lastbyteposition;
     private int pageindex;

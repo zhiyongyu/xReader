@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="xread"></dbname> <!--数据库名称-->
+
+    <!--
+       版本号
+    -->
+    <version value="1"></version>
+
+    <!--映射实体类-->
+    <list>
+        <!--<mapping class="com.test.model.Reader"></mapping>-->
+        <mapping class="com.jaron.yzy.xreader.entity.PageEntity"></mapping>
+    </list>
+</litepal>
