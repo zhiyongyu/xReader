@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -69,5 +70,23 @@ public class FileUtils {
             e.printStackTrace();
         }
         return content;
+    }
+
+    /**
+     * 将文本信息等写入文件
+     */
+    public static void writeToFile(String strcontent, String filePath, String fileName) {
+        File file = createFile(filePath, fileName);
+        FileOutputStream outStream = null;
+        try {
+            outStream = new FileOutputStream(file);
+            outStream.write(strcontent.getBytes());
+            outStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

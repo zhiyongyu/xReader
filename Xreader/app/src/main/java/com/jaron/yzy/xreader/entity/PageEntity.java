@@ -11,7 +11,7 @@ import java.util.List;
 public class PageEntity extends DataSupport {
     private int firstbyetposition;
     private int lastbyteposition;
-    private int pageindex;
+    private int pageindex;//当前页码
     private List<String> linesData;
 
     public int getFirstbyetposition() {
